@@ -90,7 +90,7 @@ All experiments will utilize publicly available data from sources like:
    - Traditional machine learning methods (**Logistic Regression, SVM, LSTM networks**). 
    - Potential fine-tuning with: boosting, ensembles, transformers, other methods
 
-3. 🆚 **Our model: Multi agent LLM **  
+3. 🆚 **Our model: Multi agent LLM**  
    - Metrics: Evaluating prediction accuracy (**MAE, MSE**) and **directional accuracy** for stock movement prediction.  
    - other Metrics
 
