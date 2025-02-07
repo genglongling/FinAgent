@@ -42,7 +42,7 @@ STOCK_CSV_PATH = os.path.join("sp500_stocks", "sp500_stocks.csv")
 LOOKBACK_DAYS = 5
 
 # Ratio of training data vs. total
-TRAIN_SPLIT_RATIO = 0.9
+TRAIN_SPLIT_RATIO = 0.8
 
 #####################################################################
 # 1. LOAD DATA WITH NaN HANDLING
@@ -96,13 +96,12 @@ def add_technical_features(df):
     Adj Close, Close, High, Low, Open, Volume.
     
     Features added:
-      - SMA_10, SMA_50: 10-day and 50-day Simple Moving Averages (using Close)
-      - EMA_10: 10-day Exponential Moving Average (using Close)
-      - Bollinger Bands (20-day): Upper, Lower, and Band Width
-      - MACD and MACD_Signal: Moving Average Convergence Divergence
-      - ATR_14: 14-day Average True Range
-      - RSI_14: 14-day Relative Strength Index
-      - OBV: On-Balance Volume
+      - SMA_10, SMA_50, EMA_10
+      - Bollinger Bands (20-day) -> Upper, Lower, Width
+      - MACD, MACD_Signal
+      - ATR_14 (Average True Range, 14-day)
+      - RSI_14 (14-day Relative Strength Index)
+      - OBV (On-Balance Volume)
     """
     df = df.copy()
 
@@ -154,9 +153,9 @@ def add_technical_features(df):
 #####################################################################
 def add_rolling_features(df, window=7):
     """
-    Computes rolling means for the columns "High", "Low", and "Volume" over a window of 'window' days,
-    shifts them by 1 (so the current row uses information from previous days only),
-    and returns a DataFrame with new columns e.g., "High_7d", "Low_7d", "Volume_7d".
+    Computes rolling means for "High", "Low", and "Volume" over 'window' days,
+    shifts them by 1 (so the current row only uses past data),
+    and returns a DataFrame with new columns e.g. "High_7d", "Low_7d", "Volume_7d".
     """
     lag_features = ["High", "Low", "Volume"]
     df_rolled = df[lag_features].rolling(window=window, min_periods=0)
@@ -178,16 +177,15 @@ def preprocess_data_svr(df_symbol, lookback_days=LOOKBACK_DAYS):
       - Creating the target column (next-day Close).
       - Handling missing values.
     """
-    # Add technical features using available columns (Adj Close, Close, High, Low, Open, Volume)
+    # Add technical features
     df_symbol = add_technical_features(df_symbol)
     
-    # Add rolling features for High, Low, and Volume (7-day window)
+    # Add rolling features
     df_rolling = add_rolling_features(df_symbol, window=7)
-    # Merge the new rolling features back into the main DataFrame.
-    # We reset the index to ensure the merge is aligned on row order.
-    df_symbol = pd.concat([df_symbol.reset_index(drop=True), df_rolling.reset_index(drop=True)], axis=1)
+    df_symbol = pd.concat([df_symbol.reset_index(drop=True),
+                           df_rolling.reset_index(drop=True)], axis=1)
     
-    # Create lagged features for past LOOKBACK_DAYS closes (using Close)
+    # Create lagged features for past LOOKBACK_DAYS closes
     for i in range(1, lookback_days + 1):
         df_symbol[f"Close_Lag_{i}"] = df_symbol["Close"].shift(i)
 
@@ -224,23 +222,22 @@ def time_based_split(df, date_col="Date", split_ratio=TRAIN_SPLIT_RATIO):
 #####################################################################
 def train_svr(df_train, lookback_days=LOOKBACK_DAYS):
     """
-    Trains an SVR using a combination of lag features and technical/rolling indicators.
-    In this example, we use:
+    Trains an SVR using:
       - Lag features for the Close price: Close_Lag_1, ..., Close_Lag_{LOOKBACK_DAYS}
-      - Additional technical indicators: SMA_10, SMA_50, EMA_10, Bollinger_Width, MACD, RSI_14, OBV, ATR_14
       - Rolling features: High_7d, Low_7d, Volume_7d
+      - (Optional) Other technical indicators if desired
     """
     # Define lag features based on Close prices
     lag_features = [f"Close_Lag_{i}" for i in range(1, lookback_days + 1)]
     
+    # Rolling features
+    rolling_features = ["High_7d", "Low_7d", "Volume_7d"]
+    
     # Define additional technical indicators
     tech_features = ["SMA_10", "SMA_50", "EMA_10", "Bollinger_Width", "MACD", "RSI_14", "OBV", "ATR_14"]
     
-    # Define new rolling features computed above
-    rolling_features = ["High_7d", "Low_7d", "Volume_7d"]
-    
     # Combine all features
-    feature_cols = lag_features + rolling_features
+    feature_cols = lag_features + rolling_features #+ tech_features
     
     X_train = df_train[feature_cols].values
     y_train = df_train["Target"].values
@@ -267,7 +264,87 @@ def train_svr(df_train, lookback_days=LOOKBACK_DAYS):
     return grid_search.best_estimator_
 
 #####################################################################
-# 8. PLOT TRAIN & VALIDATION PREDICTIONS
+# 8. PERFORMANCE ANALYSIS UTILS
+#####################################################################
+def save_performance_metrics(symbol, train_mse, val_mse, model_type="svr"):
+    """
+    Save performance metrics to a CSV file for later analysis.
+
+    Args:
+        symbol (str): Stock symbol
+        train_mse (float): Training Mean Squared Error
+        val_mse (float): Validation Mean Squared Error
+        model_type (str): Name or type of the model (e.g. 'svr', 'xgb_advanced')
+    """
+    metrics_df = pd.DataFrame({
+        'Symbol': [symbol],
+        'Model': [model_type],
+        'Train_MSE': [train_mse],
+        'Val_MSE': [val_mse],
+        'Train_RMSE': [np.sqrt(train_mse)],
+        'Val_RMSE': [np.sqrt(val_mse)]
+    })
+    
+    output_dir = "performance_metrics"
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = os.path.join(output_dir, "model_performance.csv")
+    
+    # If file exists, append; otherwise write a new file
+    if os.path.exists(output_file):
+        metrics_df.to_csv(output_file, mode='a', header=False, index=False)
+    else:
+        metrics_df.to_csv(output_file, index=False)
+    
+    print(f"  [INFO] Performance metrics saved to: {output_file}")
+
+def analyze_model_performance():
+    """
+    Reads the aggregated performance metrics CSV and generates:
+      - A summary CSV of mean/std for Train/Val MSE/RMSE by model.
+      - A boxplot comparing Validation RMSE across different models.
+    """
+    metrics_file = os.path.join("performance_metrics", "model_performance.csv")
+    if not os.path.exists(metrics_file):
+        print("[ERROR] No performance metrics file found to analyze.")
+        return
+        
+    # Read performance data
+    df = pd.read_csv(metrics_file)
+    
+    # Calculate average metrics by model type
+    summary = df.groupby('Model').agg({
+        'Train_MSE': ['mean', 'std'],
+        'Val_MSE': ['mean', 'std'],
+        'Train_RMSE': ['mean', 'std'],
+        'Val_RMSE': ['mean', 'std']
+    }).round(4)
+    
+    # Save summary statistics
+    summary_file = os.path.join("performance_metrics", "model_comparison_summary.csv")
+    summary.to_csv(summary_file)
+    
+    # Create box plots for validation RMSE by model
+    plt.figure(figsize=(10, 6))
+    plt.title("Model Performance Comparison - Validation RMSE")
+    # Each box in the boxplot is for one unique model type
+    models = df['Model'].unique()
+    data = [df[df['Model'] == model]['Val_RMSE'].values for model in models]
+    plt.boxplot(data, labels=models)
+    plt.ylabel('Validation RMSE')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    
+    boxplot_file = os.path.join("performance_metrics", "model_comparison_boxplot.png")
+    plt.savefig(boxplot_file)
+    plt.close()
+    
+    print("\n[INFO] Model Performance Summary:")
+    print(summary)
+    print(f"\n[INFO] Summary saved to: {summary_file}")
+    print(f"[INFO] Boxplot saved to: {boxplot_file}")
+
+#####################################################################
+# 9. PLOT TRAIN & VALIDATION PREDICTIONS
 #####################################################################
 def plot_train_val(df_train, df_val, y_pred_train, y_pred_val, cutoff_date, symbol):
     """
@@ -306,7 +383,7 @@ def plot_train_val(df_train, df_val, y_pred_train, y_pred_val, cutoff_date, symb
     print(f"  [INFO] Plot saved to: {out_file}")
 
 #####################################################################
-# 9. MAIN FUNCTION
+# MAIN FUNCTION
 #####################################################################
 def main():
     # 1. Load the dataset
@@ -319,7 +396,7 @@ def main():
         if df_symbol.empty:
             continue
 
-        # 3. Preprocess data: add technical features, rolling features, lag features, and target
+        # 3. Preprocess data: add technical/rolling/lag features, create target
         df_svr = preprocess_data_svr(df_symbol)
 
         # Check if we have sufficient data
@@ -336,23 +413,29 @@ def main():
 
         # 6. Define the same feature columns for prediction
         feature_cols = (
-            [f"Close_Lag_{i}" for i in range(1, LOOKBACK_DAYS + 1)] +
-            #["SMA_10", "SMA_50", "EMA_10", "Bollinger_Width", "MACD", "RSI_14", "OBV", "ATR_14"] +
-            ["High_7d", "Low_7d", "Volume_7d"]
+            [f"Close_Lag_{i}" for i in range(1, LOOKBACK_DAYS + 1)] 
+            +["High_7d", "Low_7d", "Volume_7d"]
+            #+["SMA_10", "SMA_50", "EMA_10", "Bollinger_Width", "MACD", "RSI_14", "OBV", "ATR_14"]
         )
 
         # 7. Make predictions on both training and validation sets
         y_pred_train = model.predict(df_train[feature_cols].values)
         y_pred_val = model.predict(df_val[feature_cols].values)
 
-        # 8. Calculate and print Mean Squared Error for train and validation sets
+        # 8. Calculate and print Mean Squared Error for train and validation
         train_mse = mean_squared_error(df_train["Target"], y_pred_train)
         val_mse = mean_squared_error(df_val["Target"], y_pred_val)
         print(f"  [TRAIN] MSE: {train_mse:.4f}")
         print(f"  [VAL]   MSE: {val_mse:.4f}")
 
-        # 9. Plot the results
+        # 9. Save performance metrics
+        save_performance_metrics(symbol, train_mse, val_mse, model_type="svr")
+
+        # 10. Plot the results
         plot_train_val(df_train, df_val, y_pred_train, y_pred_val, cutoff_date, symbol)
+
+    # After looping through all symbols, analyze overall model performance
+    analyze_model_performance()
 
 if __name__ == "__main__":
     main()
