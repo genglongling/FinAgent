@@ -1,4 +1,5 @@
-# 🚀 CS229-Benchmarking: Multi-Agent LLM with Machine Learning for Stock Prediction  
+# 🚀 FinAgent: Benchmarking Financial Multi-Agent LLM with CrossSearch, Complex Reasoning, Machine Learning, Math Induction, and Decision Making 
+# CS229 Course Project
 
 ## ⚠️ 1. LLM Limitations in Complex Planning  
 
