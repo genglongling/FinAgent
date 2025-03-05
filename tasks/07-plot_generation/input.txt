@@ -1,0 +1,10 @@
+generate a plot of stock price prediction on 2025/3 of Amazon
+generate a plot of stock price prediction on 2025/3 of Google
+generate a plot of stock price prediction on 2025/3 of Meta
+generate a plot of stock price prediction on 2025/3 of Microsoft
+generate a plot of stock price prediction on 2025/3 of Tesla
+generate a plot of stock price prediction on 2025/3 of RJF
+generate a plot of stock price prediction on 2025/3 of Visa
+generate a plot of stock price prediction on 2025/3 of Disney
+generate a plot of stock price prediction on 2025/3 of Fox
+generate a plot of stock price prediction on 2025/3 of Netflix

@@ -1,0 +1,12 @@
+tell me stock price prediction on 2025/3/10 of Amazon, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me stock price prediction on 2025/3/10 of Google from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me stock price prediction on 2025/3/10 of Meta from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me stock price prediction on 2025/3/10 of Microsoft from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me stock price prediction on 2025/3/10 of Tesla from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me stock price prediction on 2025/3/10 of RJF from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me stock price prediction on 2025/3/10 of Visa from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me stock price prediction on 2025/3/10 of Disney from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me stock price prediction on 2025/3/10 of Fox from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me stock price prediction on 2025/3/10 of Netflix from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+
+
