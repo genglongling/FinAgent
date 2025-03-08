@@ -1,0 +1,12 @@
+tell me up-to-date company news analysis of Amazon from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me up-to-date company news analysis of Google from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me up-to-date company news analysis of Meta from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me up-to-date company news analysis of Microsoft from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me up-to-date company news analysis of Tesla from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me up-to-date company news analysis of RJF from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me up-to-date company news analysis of Visa from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me up-to-date company news analysis of Disney from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me up-to-date company news analysis of Fox from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me up-to-date company news analysis of Netflix from 2024 to 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+
+
