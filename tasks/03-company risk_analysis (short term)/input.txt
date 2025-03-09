@@ -1,0 +1,12 @@
+tell me company risk analysis of Amazon 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me company risk analysis of Google 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me company risk analysis of Meta 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me company risk analysis of Microsoft 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me company risk analysis of Tesla 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me company risk analysis of RJF 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me company risk analysis of Visa 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me company risk analysis of Disney 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me company risk analysis of Fox 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+tell me company risk analysis of Netflix 2025, and provide conclusion "Bearish", "Somewhat-Bearish", "Neural", or "Somewhat-Bullish", "Bullish" for 2025/3
+
+
