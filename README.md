@@ -15,9 +15,9 @@ Large Language Models (LLMs) excel at pattern recognition but struggle with comp
 
 ---
 
-## 2. Weighted Multi-Agent Collaborative Intelligence (W-MACI)  
+## 2. Weighted Multi-Agent Collaborative Intelligence Framework (W-MACI)  
 
-W-MACI is designed to overcome these LLM limitations using a three-layer approach:  
+W-MACI is designed to support multi-agent system:  
 
 1. 🏗️ **7 Multi-Agent tools**  
    - Our newest version Fin-Agent support Magentic multi-agent tool.
@@ -45,7 +45,7 @@ W-MACI is designed to overcome these LLM limitations using a three-layer approac
 
 ## 2. Adaptive Boosting optimization algorithm (AB-MACI)  
 
-MACI is designed to overcome these LLM limitations using a three-layer approach:  
+AB-MACI is designed to overcome these ML and LLM limitations using a three-layer approach:  
 
 1. 🏗️ 🤖 **Meta-Planner (MP)**  
    - Constructs task-specific workflows, identifying roles and constraints.  
