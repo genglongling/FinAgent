@@ -1,5 +1,4 @@
-# 🚀 FinAgent: Benchmarking Financial Multi-Agent LLM with CrossSearch, Complex Reasoning, Machine Learning, Math Induction, and Decision Making 
-# CS229 Course Project
+# 🚀 Beyond Rational Frontiers: FinAgent-An Adaptive Boosting  Weighted Multi-LLM Agent for Financial Tasks and Stock Return Prediction
 
 ## ⚠️ 1. LLM Limitations in Complex Planning  
 
