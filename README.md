@@ -56,7 +56,7 @@ AB-MACI is designed to overcome these ML and LLM limitations using our new adapt
 - 🚀 **(5) Agent 5**: Stock Prediction and Forecasting (new)
 - 🏗️ **(6) Agent 6**: Plot Generation (new)
   
-### 📡 2) Adaptive Boosting  
+###  2) Adaptive Boosting  
    - 
    - Adapts to unexpected changes in real-time.  
 
