@@ -17,7 +17,7 @@ Large Language Models (LLMs) excel at pattern recognition but struggle with comp
 
 ## 2. Weighted Multi-Agent Collaborative Intelligence Framework (W-MACI)  
 
-W-MACI is designed to support multi-agent system:  
+W-MACI is a general multi-agent system with:  
 
 1. 🏗️ **7 Multi-Agent tools**  
    - Our newest version Fin-Agent support Magentic multi-agent tool.
