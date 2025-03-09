@@ -1,31 +1,48 @@
 # 🚀 FinAgent: Beyond Rational Frontiers, An Adaptive Boosting  Weighted Multi-LLM Agent for Financial Tasks and Stock Return Prediction
 
-## ⚠️ 1. LLM Limitations in Complex Planning  
+## 1. Background
 
-Large Language Models (LLMs) excel at pattern recognition but struggle with complex planning tasks that require:  
+### 1.1 Financial Introduction
+### 1.2 Machine Learning
+### 1.3 LLM Limitations 
 
-- 🧠 **Deliberate reasoning**  
-- ⏳ **Temporal awareness**  
-- 📏 **Constraint management**  
+Large Language Models (LLMs) excel at pattern recognition but struggle with complex tasks that require:  
 
-### 🔍 1.1 Key Limitations of Current LLM Models:  
-
-1. ❌ **Lack of Self-Verification**  
-   - LLMs cannot validate their own outputs, leading to errors.  
-
-2. 🎯 **Attention Bias & Constraint Drift**  
-   - Contextual focus shifts, ignoring earlier constraints.  
-
-3. 🏗️ **Lack of Common Sense Integration**  
-   - Omits real-world constraints (e.g., logistics delays).  
+- 📏 **1.1 Math Induction, Machine Learning**  
+- 🧠 **1.2 Deliberate reasoning**
+- ⚠️ **1.3 Constraint management, Complex planning, scheduling, and optimization** 
+- ⏳ **1.4 Temporal and Spacial awareness**  
 
 ---
 
-## 🤖 2. MACI: Multi-Agent Collaborative Intelligence  
+## 2. Weighted Multi-Agent Collaborative Intelligence (W-MACI)  
+
+W-MACI is designed to overcome these LLM limitations using a three-layer approach:  
+
+1. 🏗️ **7 Multi-Agent tools**  
+   - Our newest version Fin-Agent support Magentic multi-agent tool.
+   - Our previous MACI-framework could support multi-agent tools: LangGraph, AutoGen, Crewai, LangChain, and to be extended on LlamaIndex, Haystack.
+
+2. 🤝 **20+ LLM Agents**  
+   - **OpenAI LLMs**
+   - **Ollama**
+   - **Anthropic**
+   - **Mistral**
+   - **LiteLLM**
+   - **or any other OpenAI schema-compatible model** 
+   - **FinAgent(ours)**
+   - **Your Self-developed LLMs(ours)**
+
+3. 📡 **Run-Time Monitor**  
+   - Adapts to unexpected changes in real-time.  
+
+---
+
+## 2. Adaptive Boosting optimization algorithm (AB-MACI)  
 
 MACI is designed to overcome these LLM limitations using a three-layer approach:  
 
-1. 🏗️ **Meta-Planner (MP)**  
+1. 🏗️ 🤖 **Meta-Planner (MP)**  
    - Constructs task-specific workflows, identifying roles and constraints.  
 
 2. 🤝 **Common & Task-Specific Agents**  
