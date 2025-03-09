@@ -1,4 +1,4 @@
-# 🚀 FinAgent: Beyond Rational Frontiers, An Adaptive Boosting  Weighted Multi-LLM Agent for Financial Tasks and Stock Return Prediction
+# 🚀 Beyond Rational Frontiers: FinAgent-An Adaptive Boosting  Weighted Multi-LLM Agent for Financial Tasks and Stock Return Prediction
 
 ## ⚠️ 1. LLM Limitations in Complex Planning  
 
