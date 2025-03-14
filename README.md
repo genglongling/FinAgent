@@ -2,9 +2,10 @@
 
 ## 1. Background
 
-### 1.1 Financial Introduction
-### 1.2 Machine Learning
-### 1.3 LLM Limitations 
+### 1.1  Machine Learning
+Traditional Machine Learning relies on tedious work for dataset selection and feature engineering.
+
+### 1.2  LLM Limitations 
 
 Large Language Models (LLMs) excel at pattern recognition but struggle with complex tasks that require:  
 
