@@ -169,10 +169,14 @@ cd models
 python3 main.py
 ```
 
-## 6.4 Test on single-LLM model
+## 6.4 Test on single-LLM and multi-LLM model
 ```sh
 cd models
-python3 LLM_rag_pipeline.py
+export OPENAI_API_KEY=
+export AV_API_KEY=
+python3 main_LLM_rag_pipeline.py
 ```
+
+go to http://0.0.0.0:8000/docs#, and enter question in section "investment research".
 
 This **README** provides an overview of the **CS229 Benchmarking Multi-Agent LLM with Machine Learning for Stock Prediction** project, highlighting its **motivations, project plan, methodologies, demo, and future directions.** 🚀  
