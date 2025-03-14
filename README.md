@@ -46,7 +46,7 @@ W-MACI is a general multi-agent system with:
 
 ## 3. Bagging optimization algorithm (Bagging-MACI)  
 
-Bagging-MACI is designed to overcome these ML and LLM limitations using our new adaptive boosting method:  
+Bagging-MACI is designed to overcome these ML and LLM limitations using our new bagging method:  
 
 ### 1) Agent Registration:  
 
