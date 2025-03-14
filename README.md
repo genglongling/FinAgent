@@ -43,9 +43,9 @@ W-MACI is a general multi-agent system with:
 
 ---
 
-## 3. Adaptive Boosting optimization algorithm (AB-MACI)  
+## 3. Bagging optimization algorithm (Bagging-MACI)  
 
-AB-MACI is designed to overcome these ML and LLM limitations using our new adaptive boosting method:  
+Bagging-MACI is designed to overcome these ML and LLM limitations using our new adaptive boosting method:  
 
 ### 1) Agent Registration:  
 
@@ -56,22 +56,16 @@ AB-MACI is designed to overcome these ML and LLM limitations using our new adapt
 - 🚀 **(5) Agent 5**: Stock Prediction and Forecasting (new)
 - 🏗️ **(6) Agent 6**: Plot Generation (new)
   
-###  2) Adaptive Boosting  
-   - 
+###  2) Bagging  
+   - We run **Bagging** algorithm on the above selected, 6 agents.
    - Adapts to unexpected changes in real-time.  
-
----
-
-## 📅 3. Project Plan  
-
-### 🔄 3.1 LLM Model Improvement on:  
 
 
 ---
 
 ## ⚙️ 4. Experiment Set-up  
 
-We plan to evaluate our multi-agent temporal planning framework on **S&P 500 stocks (2018-2024)**, incorporating historical trading data, reports data, and other relevant financial data. Our focus will be on three major market sectors.  
+We plan to evaluate our multi-agent temporal planning framework on **S&P 500 stocks (2018-2024)**, incorporating historical trading data, reports data, and other relevant financial data, and also **real-time financial data** from alphavantage. Our focus will be on three major market sectors.  
 
 All experiments will utilize publicly available data from sources like:  
 
@@ -82,15 +76,15 @@ All experiments will utilize publicly available data from sources like:
 
 1. 📊 **Single factors/Multifactors:**  
    - Single factors include: Stock price (close, open, high, volumn).
-   - Multi factors include: Market shifts/trends, within-sector impact
+   - Multi factors include: Market shifts/trends, within-sector impact, news, macro economic factors
 
 2. 📊 **Baseline Models:**  
-   - Traditional machine learning methods (**Logistic Regression, SVM, LSTM networks**). 
+   - Traditional machine learning methods (**Prophet, Logistic Regression, SVM, LSTM networks**). 
    - Potential fine-tuning with: boosting, ensembles, transformers, other methods
 
-3. 🆚 **Our model: Multi agent LLM**  
-   - Metrics: Evaluating prediction accuracy (**MAE, MSE**) and **directional accuracy** for stock movement prediction.  
-   - other Metrics
+3. 🆚 **Our model: W-MACI and Bagging-MACI**  
+   - Regression: Evaluating prediction accuracy (**MAE, MSE**) for stock price prediction.  
+   - Classification: **Directional accuracy** for stock trend prediction.   
 
 4. 🧩 **Ablation Studies:**  
    - Testing different combinations of agents and their impact on performance.  
@@ -102,10 +96,9 @@ All experiments will utilize publicly available data from sources like:
 
 ## 🎓 5. Contribution  
 
-1. 📄 **Paper: ** – *by *
-2. 💻 **GitHub Setup and Experiment for LSTM (prophet)** – *Longling Gloria Geng*  
-3. 💻 **Code Testing and Experiment for model 1** – *Yunong Liu*  
-4. 💻 **Code Testing and Experiment for model 2** – *Wendy Yin*  
+1. 💻 **GitHub Setup and Experiment for prophet, W-MACI, and Bagging-MACI** – *Longling Gloria Geng*  
+2. 💻 **Code Testing and Experiment for XGBoost** – *Yunong Liu*  
+3. 💻 **Code Testing and Experiment for LSTM, gpt-4o-mini** – *Wendy Yin*  
 
 ---
 # 🚀 6. How to Run the Code
@@ -152,6 +145,7 @@ cd models
 python3 svr.py
 python3 xgb.py
 python3 main_prophet1.py
+python3 LSTM.py
 ```
 
 ### 3) Wait for the Script to Finish
@@ -172,6 +166,12 @@ Once the script completes, you’ll find the forecasted plots in the project fol
 ```sh
 cd models
 python3 main.py
+```
+
+## 6.4 Test on single-LLM model
+```sh
+cd models
+python3 LLM_rag_pipeline.py
 ```
 
 This **README** provides an overview of the **CS229 Benchmarking Multi-Agent LLM with Machine Learning for Stock Prediction** project, highlighting its **motivations, project plan, methodologies, demo, and future directions.** 🚀  
