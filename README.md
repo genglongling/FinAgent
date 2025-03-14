@@ -179,4 +179,4 @@ python3 main_LLM_rag_pipeline.py
 
 go to http://0.0.0.0:8000/docs#, and enter question in section "investment research".
 
-This **README** provides an overview of the **CS229 Benchmarking Multi-Agent LLM with Machine Learning for Stock Prediction** project, highlighting its **motivations, methodologies, demo, experiments, and future directions.** 🚀  
+This **README** provides an overview of the **CS229 Benchmarking Bagging Multi-Agent LLM with Machine Learning for Stock Prediction** project, highlighting its **motivations, methodologies, demo, experiments, and future directions.** 🚀  
